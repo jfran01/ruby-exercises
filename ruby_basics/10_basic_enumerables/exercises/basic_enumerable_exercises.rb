@@ -23,8 +23,17 @@ def find_low_inventory(inventory_list)
   inventory_list.select{|item, value| value < 4}
 end
 
+
 def find_word_lengths(word_list)
   # use #reduce to iterate through each item of the word_list (an array)
   # return a hash with each word as the key and its length as the value
   # hint: look at the documentation and review the reduce examples in basic enumerable lesson
+  word_list.reduce(Hash.new(0)) do |word, length|
+    word[length] = length.length
+    word
+  end
 end
+
+find_word_lengths(['rabbit', 'cat', 'horse', 'snake'])
+
+
